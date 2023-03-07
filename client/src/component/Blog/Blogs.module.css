@@ -1,0 +1,27 @@
+.blogContainer{
+    margin-left: 5rem;
+    flex-direction: row;
+}
+
+.container{
+    padding: 2rem;
+    /* flex-direction: row; */
+    display: flex;
+}
+
+
+.cardBody{
+    width: 35rem;
+    height: 10rem;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.title{
+
+}
+
+.textfield{
+    height: 4.8rem;
+    overflow: hidden;
+}
