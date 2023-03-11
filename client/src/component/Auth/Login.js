@@ -45,18 +45,37 @@ const Login = () => {
             })
         });
 
-        const res = data;
-        console.log(res)
+        const res = data.json();
+        res.then(function(result) {
+          console.log(result) 
+          
+          if(result.status === 200){
+            // const str = result.token
+            // const array = str.split("/")
+            // const token = array[0]
+            // console.log(token)
+            localStorage.setItem('usertoken', result.token)
+            navigate('/home')
+          }
+        //   else {
+        //   // alert('Incorrect username or password!')
+        //     toast.error("Incorrect username or password!", {
+        //       position: 'top-center'
+        //   });
+        // }
 
-        if(res.status === 200){
-          navigate('/home')
-        }
-        else if(res.status === 400){
-          // alert('Incorrect username or password!')
-          toast.error("Incorrect username or password!", {
-            position: 'top-center'
-        });
-        }
+       })
+       .catch(error => {
+        console.log(error)
+            toast.error("Incorrect username or password!", {
+               position: 'top-center'
+          })
+        })
+        
+        
+        // console.log(res)
+
+        
     }
 
   }

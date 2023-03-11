@@ -29,11 +29,12 @@ namespace BlogPost.Controllers
         public async Task<ActionResult> Login(UserLoginDTO userDTO)
         {
             var res = await _authRepo.Login(userDTO.Username, userDTO.Password);
+            Console.WriteLine(res);
             if(res == null)
             {
                 return BadRequest($"Incorrect username or password!");
             }
-            return Ok(res);
+            return Ok(new { token = res, status = 200 });
         }
     }
 }

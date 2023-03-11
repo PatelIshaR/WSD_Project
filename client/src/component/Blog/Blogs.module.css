@@ -12,9 +12,12 @@
 
 .cardBody{
     width: 35rem;
-    height: 10rem;
-    border: 1px solid black;
+    height: 12rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    /* border: 1px solid black; */
     overflow: hidden;
+    background-color: gainsboro;
 }
 
 .title{

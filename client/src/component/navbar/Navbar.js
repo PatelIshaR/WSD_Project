@@ -5,18 +5,18 @@ import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div className="navbar-div">
         <header class="header">
             <a href="#" className="logo">BlogPost </a>
             <nav className="navbar">
                 <div id="nav-close"></div>
-                <NavLink to="/home">Home</NavLink>
-                <NavLink to="/blogs">Blogs</NavLink>
-                <a href="#">Add blog</a>
-                <a href="#">Contact Us</a>
-                <NavLink to="/">Logout</NavLink>
+                <NavLink to="/home" style={{textDecoration:"none"}}>Home</NavLink>
+                <NavLink to="/blogs" style={{textDecoration:"none"}}>Blogs</NavLink>
+                <NavLink to={`/addBlog/${props.id}`} style={{textDecoration:"none"}}>Add blog</NavLink>
+                {/* <a href="#" style={{textDecoration:"none"}}>Contact Us</a> */}
+                <NavLink to="/" style={{textDecoration:"none"}}>Logout</NavLink>
             </nav>
         </header>
     </div>

@@ -42,7 +42,10 @@ const userRegister = async(e) => {
 
       const res = data;
       if(res.status === 200){
-        alert('User registered successfully!')
+        // alert('User registered successfully!')
+        toast.success("User registered successfully!", {
+          position: 'top-center'
+        });
       }
       else if(res.status === 400){
         // alert('Username already exists!')

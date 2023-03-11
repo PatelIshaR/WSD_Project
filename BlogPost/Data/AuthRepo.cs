@@ -53,7 +53,10 @@ namespace BlogPost.Data
             {
                 return null;
             }
-            else { return CreateToken(user);  }
+            else {
+                //Console.WriteLine(user);
+                return CreateToken(user);  
+            }
         }
         private void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {
@@ -99,7 +102,9 @@ namespace BlogPost.Data
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken = tokenHandler.CreateToken(tokenDescriptor);
 
-            return tokenHandler.WriteToken(securityToken);
+            string token = tokenHandler.WriteToken(securityToken) + '/' + user.Id;
+
+            return token;
         }
     }
 }

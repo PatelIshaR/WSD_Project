@@ -33,6 +33,7 @@ const Blogs = () => {
     const display = blog.map((item) => {
         return(
             <>
+            <Navbar />
                 {/* <h3><NavLink to={`/blogs/${item.id}`}>{item.title}</NavLink></h3> */}
             <div className={styles.blogContainer} style={{flexDirection:"row"}}>
             <div className={styles.container} style={{display:"flex"}} />
