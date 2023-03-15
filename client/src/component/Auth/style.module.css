@@ -5,6 +5,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
 }
 
 .login_form_container {
@@ -36,6 +37,7 @@
 .form_container h1 {
 	font-size: 40px;
 	margin-top: 0;
+	overflow: hidden;
 }
 
 .input {
@@ -76,6 +78,7 @@
 	color: white;
 	font-size: 40px;
 	align-self: center;
+	overflow: hidden;
 }
 
 .white_btn,

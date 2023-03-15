@@ -3,17 +3,15 @@ import { useState } from 'react';
 import { Form, Button, Col, Container } from 'react-bootstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import Container from 'react-bootstrap/Container';
-// import Form from 'react-bootstrap/Form';
+import Navbar from '../navbar/Navbar';
+
 
 const AddBlog = () => {
 
     const tokenstr = localStorage.getItem("usertoken")
-    // const path = window.location.pathname
     const array = tokenstr.split("/")
     const token = array[0]
     const id = array[1]
-    // console.log(UserId)
 
     const [blog, setBlog] = useState({
         Title: "",
@@ -55,37 +53,33 @@ const AddBlog = () => {
             const res = data;
             console.log(res)
             if(res.status === 201){
-              // alert('Blog added successfully!')
               toast.success("Blog added successfully!", {
                 position: 'top-center'
               });
+
             }
             else if(res.status === 400){
               toast.error("Unauthorized!", {
                 position: 'top-center'
             });
             }
-            // console.log(res)
         }
       }
 
   return (
     <div>
-      <Container>
+      <Navbar />
+      <Container style={{marginTop:"7rem"}}>
       <Form>
-        {/* <Form.Group controlId="form.Name">
-            <Form.Label>Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter name" />
-        </Form.Group> */}
         <Form.Group controlId="form.Text">
             <Form.Label>Title</Form.Label>
             <Form.Control type="text" placeholder="title" name="Title" onChange={setValue} />
         </Form.Group>
         <Form.Group controlId="form.Textarea">
             <Form.Label>Comment</Form.Label>
-            <Form.Control as="textarea" rows={30} name="Content" onChange={setValue}/>
+            <Form.Control as="textarea" rows={15} name="Content" onChange={setValue}/>
         </Form.Group>
-        <Button variant="primary" onClick={add}>Add</Button>
+        <Button variant="btn btn-dark" onClick={add}>Add</Button>
       </Form>
     </Container>
     <ToastContainer />

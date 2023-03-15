@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import styles from "./style.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import "./auth.module.css"
 
 const Login = () => {
 
@@ -71,11 +70,6 @@ const Login = () => {
                position: 'top-center'
           })
         })
-        
-        
-        // console.log(res)
-
-        
     }
 
   }

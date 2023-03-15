@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import styles from './Content.module.css'
 
 const Content = () => {
     const [blog, setBlog] = useState({
@@ -11,7 +12,6 @@ const Content = () => {
     const path = window.location.pathname
     const array = path.split("/")
     const id = array[2]
-    // console.log(id)
 
     const getData = async() => {
         const data = await fetch("https://localhost:7261/api/Blogs/" + id, {
@@ -23,9 +23,6 @@ const Content = () => {
         const res = await data.json();
         console.log(res)
         setBlog(res)
-        // if(res.status === 201){
-        //   setMovie(res.detail)
-        // }
     }
 
     useEffect(() => {
@@ -35,9 +32,11 @@ const Content = () => {
       }, [])
 
   return (
-    <div>
+    <div className={styles.box}>
       <h1>{blog.title}</h1>
+      <div className={styles.content}>
       <p>{blog.content}</p>
+      </div>
     </div>
   )
 }

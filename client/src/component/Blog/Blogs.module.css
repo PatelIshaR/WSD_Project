@@ -5,19 +5,21 @@
 
 .container{
     padding: 2rem;
-    /* flex-direction: row; */
     display: flex;
 }
 
-
 .cardBody{
     width: 35rem;
-    height: 12rem;
+    height: 14rem;
     padding: 1rem;
     border-radius: 0.5rem;
-    /* border: 1px solid black; */
     overflow: hidden;
     background-color: gainsboro;
+    overflow: hidden;
+}
+
+h4{
+    overflow: hidden;
 }
 
 .title{
@@ -28,3 +30,4 @@
     height: 4.8rem;
     overflow: hidden;
 }
+

@@ -1,0 +1,11 @@
+.box h1{
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgb(179, 181, 181);
+    overflow: hidden;
+}
+
+.box p{
+    padding: 1rem;
+    background-color: rgb(231, 231, 231);
+}

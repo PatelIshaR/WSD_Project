@@ -25,9 +25,19 @@ namespace BlogPost.Controllers
         // GET: api/Blogs
         [AllowAnonymous]
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Blog>>> GetBlogs()
+        public IQueryable<Object> GetBlogs()
         {
-            return await _context.Blogs.ToListAsync();
+            //return await _context.Blogs.ToListAsync();
+            return from b in _context.Blogs
+                   join u in _context.Users on b.UserId equals u.Id
+                   select new
+                   {
+                       id = b.Id,
+                       title = b.Title,
+                       content = b.Content,
+                       name = u.UserName
+                   };
+            
         }
 
         // GET: api/Blogs/5
@@ -45,13 +55,24 @@ namespace BlogPost.Controllers
             return blog;
         }
 
+        // get blog by user id
+        [AllowAnonymous]
+        [HttpGet("/blog/{id}")]
+        public async Task<ActionResult<IEnumerable<Blog>>> GetBlogsById(long id)
+        {
+            return await _context.Blogs.Where(x => x.UserId == id).ToListAsync();
+
+        }
+
         // PUT: api/Blogs/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
         public async Task<IActionResult> PutBlog(long id, Blog blog)
         {
+            Console.WriteLine("PUT");
             if (id != blog.Id)
             {
+                Console.WriteLine(id);
                 return BadRequest();
             }
 
@@ -59,7 +80,9 @@ namespace BlogPost.Controllers
 
             try
             {
+                Console.WriteLine("try");
                 await _context.SaveChangesAsync();
+                Console.WriteLine("Updated");
             }
             catch (DbUpdateConcurrencyException)
             {
